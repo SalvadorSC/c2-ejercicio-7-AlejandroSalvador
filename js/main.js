@@ -9,7 +9,9 @@ const equiposMayoresEdad = (equipo, nEdad) => {
   return mayoresNEdad;
 };
 
-const equiposProvincia = (equipos) => {
-  equipos.filter(({ equipos: { provincia } }) => provincia);
-  return equipos;
+const equiposProvincia = (equipo) => {
+  const nEquiposProvincia = equipo.filter(
+    ({ asignado: { provincia } }) => provincia === "Tarragona"
+  );
+  return nEquiposProvincia;
 };
