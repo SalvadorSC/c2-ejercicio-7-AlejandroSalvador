@@ -1,0 +1,25 @@
+.principal {
+  background-color: #91a081;
+}
+aside {
+  background-color: #f0ac7b;
+  color: #1e6c49;
+}
+
+.consola {
+  background-color: black;
+  color: #1e6c49;
+  height: 90%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.consola pre {
+  color: #1e6c49;
+}
+
+.boton {
+  margin-top: 10px;
+  width: 100%;
+  height: 120px;
+}
