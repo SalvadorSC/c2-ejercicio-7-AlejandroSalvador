@@ -4,18 +4,22 @@
 aside {
   background-color: #f0ac7b;
   color: #1e6c49;
+  max-height: 100vh;
 }
 
 .consola {
   background-color: black;
   color: #1e6c49;
   height: 90%;
+  max-height: 90%;
   width: 100%;
   border-radius: 5px;
 }
 
 .consola pre {
   color: #1e6c49;
+  max-height: 100%;
+  overflow: scroll;
 }
 
 .boton {
