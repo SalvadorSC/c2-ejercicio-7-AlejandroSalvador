@@ -31,3 +31,25 @@ const provincias = (equipo) => {
   });
   return provinciasConEquipos;
 };
+
+const puestos = (equipo) => {
+  const puestosConEquipos = [];
+  equipo.map(
+    ({
+      asignado: {
+        empleado: { puesto },
+      },
+    }) => {
+      const buscar = puestosConEquipos.find(
+        (arrayPuestos) => arrayPuestos === puesto
+      );
+
+      if (!buscar) {
+        console.log(puestosConEquipos);
+        puestosConEquipos.push(puesto);
+      }
+      return puestosConEquipos;
+    }
+  );
+  return puestosConEquipos;
+};
