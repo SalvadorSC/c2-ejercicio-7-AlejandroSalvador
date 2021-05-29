@@ -15,3 +15,14 @@ const equiposProvincia = (equipo) => {
   );
   return nEquiposProvincia;
 };
+
+const puestos = (equipo) => {
+  const nPuestos = equipo.filter(
+    ({
+      asignado: {
+        empleado: { puesto },
+      },
+    }) => puesto === nPuestos
+  );
+  return nPuestos;
+};
