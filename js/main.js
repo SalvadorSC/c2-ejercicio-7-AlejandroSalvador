@@ -1,6 +1,12 @@
-const equiposMayoresEdad = (equipos) => {
-  equipos.filter(({ equipos: { edad } }) => edad);
-  return equipos;
+const equiposMayoresEdad = (equipo, nEdad) => {
+  const mayoresNEdad = equipo.filter(
+    ({
+      asignado: {
+        empleado: { edad },
+      },
+    }) => edad >= nEdad
+  );
+  return mayoresNEdad;
 };
 
 const equiposProvincia = (equipos) => {
