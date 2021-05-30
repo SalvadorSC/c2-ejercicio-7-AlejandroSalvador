@@ -83,3 +83,5 @@ const equiposTipo = (equipo, tipoEquipo) => {
   });
   return equiposDeTipo;
 };
+
+const trabajadoresTipo = equiposTipo;
