@@ -113,3 +113,17 @@ const equiposPorTipo = (equipo) => {
   }
   return equiposOrganizadosPorTipo;
 };
+
+const resumenEquipos = (equipo) => {
+  const resumen = [];
+  for (const index in equipo) {
+    resumen.push({});
+  }
+  for (const index in equipo) {
+    resumen[index].id = equipo[index].id;
+    resumen[index].poblacion = equipo[index].asignado.poblacion;
+    resumen[index].provincia = equipo[index].asignado.provincia;
+  }
+
+  return resumen;
+};
