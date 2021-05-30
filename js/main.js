@@ -85,7 +85,21 @@ const equiposTipo = (equipo, tipoEquipo) => {
   return equiposDeTipo;
 };
 
-const trabajadoresTipo = equiposTipo;
+const trabajadoresTipo = (equipo, tipoEquipo) => {
+  const equiposDeTipo = [];
+  equipo.map((equipo) => {
+    let { tipo } = equipo;
+    tipo = tipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipoEquipo = tipoEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipo = tipo.toLowerCase();
+    tipoEquipo = tipoEquipo.toLowerCase();
+    if (tipo === tipoEquipo) {
+      equiposDeTipo.push(equipo.asignado.empleado);
+    }
+    return equiposDeTipo;
+  });
+  return equiposDeTipo;
+};
 
 const equiposPorTipo = (equipo) => {
   const tiposEquipos = [];
