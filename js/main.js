@@ -67,7 +67,8 @@ const edadMedia = (equipo) =>
     0
   );
 
-/* const equiposPorEdad = (equipo) => {}; */
+const equiposPorEdad = (equipo) => {};
+
 const equiposTipo = (equipo, tipoEquipo) => {
   const equiposDeTipo = [];
   equipo.map((equipo) => {
@@ -113,6 +114,8 @@ const equiposPorTipo = (equipo) => {
   }
   return equiposOrganizadosPorTipo;
 };
+
+const equiposTipoLocalidad = (equipo, tipoEquipo, localidad) => {};
 
 const resumenEquipos = (equipo) => {
   const resumen = [];
