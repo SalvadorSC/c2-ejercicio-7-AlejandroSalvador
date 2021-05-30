@@ -19,6 +19,7 @@ aside {
 .consola pre {
   color: #1e6c49;
   max-height: 100%;
+  height: 100%;
   overflow: scroll;
 }
 

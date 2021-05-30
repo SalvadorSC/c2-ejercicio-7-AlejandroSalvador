@@ -53,3 +53,33 @@ const puestos = (equipo) => {
   );
   return puestosConEquipos;
 };
+
+const edadMedia = (equipo) =>
+  equipo.reduce(
+    (
+      acumulador,
+      {
+        asignado: {
+          empleado: { edad },
+        },
+      }
+    ) => edad / equipo.length + acumulador,
+    0
+  );
+
+/* const equiposPorEdad = (equipo) => {}; */
+const equiposTipo = (equipo, tipoEquipo) => {
+  const equiposDeTipo = [];
+  equipo.map((equipo) => {
+    let { tipo } = equipo;
+    tipo = tipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipoEquipo = tipoEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipo = tipo.toLowerCase();
+    tipoEquipo = tipoEquipo.toLowerCase();
+    if (tipo === tipoEquipo) {
+      equiposDeTipo.push(equipo);
+    }
+    return equiposDeTipo;
+  });
+  return equiposDeTipo;
+};
