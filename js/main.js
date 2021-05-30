@@ -85,3 +85,31 @@ const equiposTipo = (equipo, tipoEquipo) => {
 };
 
 const trabajadoresTipo = equiposTipo;
+
+const equiposPorTipo = (equipo) => {
+  const tiposEquipos = [];
+  equipo.map(({ tipo }) => {
+    const encontrado = tiposEquipos.find((tipoEnArray) => tipoEnArray === tipo);
+    if (!encontrado) {
+      tiposEquipos.push(tipo);
+    }
+    return tiposEquipos;
+  });
+  const equiposOrganizadosPorTipo = [];
+  for (const tipo of tiposEquipos) {
+    equiposOrganizadosPorTipo.push({ tipo });
+    equiposTipo(equipo, tipo);
+    console.log(equiposTipo(equipo, tipo));
+  }
+  for (const tipo in tiposEquipos) {
+    const tipoEquipo = equiposTipo(equipo, tiposEquipos[tipo]);
+    console.log(tiposEquipos[tipo]);
+    console.log(tipoEquipo);
+    if (tiposEquipos[tipo] === tipoEquipo[tipo].tipo) {
+      console.log(equiposOrganizadosPorTipo[tipo]);
+      equiposOrganizadosPorTipo[tipo].equipos = tipoEquipo;
+    }
+    console.log(equiposOrganizadosPorTipo);
+  }
+  return equiposOrganizadosPorTipo;
+};
