@@ -65,7 +65,19 @@ const edadMedia = (equipo) =>
     0
   );
 
-const equiposPorEdad = (equipo) => {};
+function compare(a, b) {
+  if (a.asignado.empleado.edad < b.asignado.empleado.edad) {
+    return -1;
+  }
+  if (a.asignado.empleado.edad > b.asignado.empleado.edad) {
+    return 1;
+  }
+  return 0;
+}
+const equiposPorEdad = (equipo) => {
+  const equiposOrdenadosEdad = [...equipo];
+  return equiposOrdenadosEdad.sort(compare);
+};
 
 const equiposTipo = (equipo, tipoEquipo) => {
   const equiposDeTipo = [];
