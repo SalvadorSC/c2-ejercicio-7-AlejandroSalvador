@@ -24,7 +24,6 @@ const provincias = (equipo) => {
     );
 
     if (!encontrado) {
-      console.log(provinciasConEquipos);
       provinciasConEquipos.push(provincia);
     }
     return provinciasConEquipos;
@@ -45,7 +44,6 @@ const puestos = (equipo) => {
       );
 
       if (!buscar) {
-        console.log(puestosConEquipos);
         puestosConEquipos.push(puesto);
       }
       return puestosConEquipos;
@@ -114,22 +112,34 @@ const equiposPorTipo = (equipo) => {
   for (const tipo of tiposEquipos) {
     equiposOrganizadosPorTipo.push({ tipo });
     equiposTipo(equipo, tipo);
-    console.log(equiposTipo(equipo, tipo));
   }
   for (const tipo in tiposEquipos) {
     const tipoEquipo = equiposTipo(equipo, tiposEquipos[tipo]);
-    console.log(tiposEquipos[tipo]);
-    console.log(tipoEquipo);
     if (tiposEquipos[tipo] === tipoEquipo[tipo].tipo) {
-      console.log(equiposOrganizadosPorTipo[tipo]);
       equiposOrganizadosPorTipo[tipo].equipos = tipoEquipo;
     }
-    console.log(equiposOrganizadosPorTipo);
   }
   return equiposOrganizadosPorTipo;
 };
 
-const equiposTipoLocalidad = (equipo, tipoEquipo, localidad) => {};
+const equiposTipoLocalidad = (equipo, tipoEquipo, localidad) => {
+  const equiposDeTipoYLocalidad = [];
+  equipo.map((equipo) => {
+    let { tipo } = equipo;
+    let { provincia } = equipo.asignado;
+    provincia = provincia.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipo = tipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipoEquipo = tipoEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    tipo = tipo.toLowerCase();
+    provincia = provincia.toLowerCase();
+    tipoEquipo = tipoEquipo.toLowerCase();
+    if (tipo === tipoEquipo && provincia === localidad) {
+      equiposDeTipoYLocalidad.push(equipo);
+    }
+    return equiposDeTipoYLocalidad;
+  });
+  return equiposDeTipoYLocalidad;
+};
 
 const resumenEquipos = (equipo) => {
   const resumen = [];
