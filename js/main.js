@@ -96,7 +96,7 @@ const equiposTipo = (equipo, tipoEquipo) => {
 };
 
 const trabajadoresTipo = (equipo, tipoEquipo) => {
-  const equiposDeTipo = [];
+  const trabajadoresDeTipo = [];
   equipo.map((equipo) => {
     let { tipo } = equipo;
     tipo = tipo.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -104,11 +104,11 @@ const trabajadoresTipo = (equipo, tipoEquipo) => {
     tipo = tipo.toLowerCase();
     tipoEquipo = tipoEquipo.toLowerCase();
     if (tipo === tipoEquipo) {
-      equiposDeTipo.push(equipo.asignado.empleado);
+      trabajadoresDeTipo.push(equipo.asignado.empleado);
     }
-    return equiposDeTipo;
+    return trabajadoresDeTipo;
   });
-  return equiposDeTipo;
+  return trabajadoresDeTipo;
 };
 
 const equiposPorTipo = (equipo) => {
@@ -155,7 +155,7 @@ const equiposTipoLocalidad = (equipo, tipoEquipo, localidad) => {
 
 const resumenEquipos = (equipo) => {
   const resumen = [];
-  for (const index in equipo) {
+  for (const index of equipo) {
     resumen.push({});
   }
   for (const index in equipo) {
